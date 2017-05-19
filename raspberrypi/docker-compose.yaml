@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  kcp:
+    container_name: kcp_client
+    build:
+      context: .
+    image: colachen/rpi-kcp-client:20175019
+    volumes:
+      - ./kcptun:/kcptun
+    ports:
+      - 2000:2000
