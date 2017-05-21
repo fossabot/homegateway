@@ -2,7 +2,7 @@ version: '2'
 
 services:
   shadowsocks:
-    container_name: shadowsocks-libev
+    container_name: shadowsocks
     network_mode: "host"
     restart: always
     build:
@@ -10,7 +10,7 @@ services:
       dockerfile: Dockerfile.shadowsocks-libev
       # args:
       #   - SS_VER=3.0.6
-    image: colachen/shadowsocks-libev:20170519
+    image: colachen/shadowsocks-libev:20170520
     volumes:
       - ./shadowsocks:/shadowsocks
     ports:
@@ -25,7 +25,7 @@ services:
       dockerfile: Dockerfile.kcptun
       # args:
       #  - KCP_VER=20170329      
-    image: colachen/kcptun:20170519
+    image: colachen/kcptun:20170520
     volumes:
       - ./kcptun:/kcptun
     ports:

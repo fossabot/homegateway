@@ -1,10 +1,9 @@
-FROM alpine:3.5
+FROM hypriot/rpi-alpine-scratch:v3.4
+
 MAINTAINER cola <colachg@gmail.com>
 
 ARG KCP_VER=20170329
-ARG KCP_URL=https://github.com/xtaci/kcptun/releases/download/v$KCP_VER/kcptun-linux-amd64-$KCP_VER.tar.gz
-
-WORKDIR /kcptun
+ARG KCP_URL=https://github.com/xtaci/kcptun/releases/download/v$KCP_VER/kcptun-linux-arm-$KCP_VER.tar.gz
 
 RUN set -ex &&\
     apk add --no-cache --virtual .build curl &&\
@@ -14,6 +13,8 @@ RUN set -ex &&\
 
 WORKDIR /kcptun
 
-EXPOSE 4000/udp
+EXPOSE 2000/udp
 
-CMD server_linux_amd64 -c kcptun.json
+ENTRYPOINT ["/usr/local/bin/client_linux_arm7"]
+
+CMD ["-c", "kcptun.json"]

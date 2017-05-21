@@ -1,0 +1,6 @@
+{
+    "remoteaddr": "vps",
+    "localaddr": ":port",
+    "mode": "fast2",
+    "key": "secret"
+}
