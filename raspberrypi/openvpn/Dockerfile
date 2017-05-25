@@ -11,7 +11,7 @@ ENV EASYRSA /usr/share/easy-rsa
 ENV EASYRSA_PKI $OPENVPN/pki
 ENV EASYRSA_VARS_FILE $OPENVPN/var
 
-ADD ./bin /usr/local/bin
+ADD https://github.com/kylemanna/docker-openvpn/tree/master/bin /usr/local/bin
 
 RUN chmod a+x /usr/local/bin/* && \
     ln -sf /usr/share/easy-rsa/easyrsa /usr/local/bin/easyrsa

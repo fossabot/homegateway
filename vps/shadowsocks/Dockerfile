@@ -36,8 +36,10 @@ RUN set -ex && \
 
 USER nobody
 
-WORKDIR /shadowsocks
-
 EXPOSE 8388/tcp 8388/udp
 
-CMD ss-server -c shadowsocks.json
+WORKDIR /shadowsocks
+
+ENTRYPOINT ["/usr/bin/ss-server"]
+
+CMD ["-c", "shadowsocks.json"]
