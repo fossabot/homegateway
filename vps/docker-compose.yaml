@@ -7,7 +7,6 @@ services:
     restart: always
     build:
       context: ./shadowsocks
-      dockerfile: Dockerfile.shadowsocks-libev
       # args:
       #   - SS_VER=3.0.6
     image: colachen/shadowsocks-libev:20170520
@@ -22,7 +21,6 @@ services:
     restart: always
     build:
       context: ./kcptun
-      dockerfile: Dockerfile.kcptun
       # args:
       #  - KCP_VER=20170329      
     image: colachen/kcptun:20170520
