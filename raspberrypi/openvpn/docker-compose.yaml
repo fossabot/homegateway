@@ -1,0 +1,14 @@
+version: '2'
+services:
+  openvpn:
+    build:
+      context: .
+    restart: always
+    container_name: openvpn-rpi
+    image: colachen/openvpn-rpi
+    cap_add:
+     - NET_ADMIN
+    ports:
+     - "1194:1194/udp"
+    volumes:
+     - ./openvpn-data/conf:/etc/openvpn
