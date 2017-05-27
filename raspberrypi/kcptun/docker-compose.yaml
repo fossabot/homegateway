@@ -2,13 +2,14 @@ version: '2'
 
 services:
   kcp:
-    container_name: kcp-client-rpi
+    container_name: kcptun-rpi
     restart: always
     build:
       context: .
       dockerfile: Dockerfile.kcptun-rpi
-    image: colachen/rpi-kcp-client:20170520
+    network_mode: "host"
+    image: colachen/kcptun-rpi:20170520
     volumes:
       - ./config:/kcptun
     ports:
-      - 2000:2000
+      - 2000:2000/udp
