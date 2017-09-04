@@ -1,0 +1,32 @@
+version: '2'
+
+services:
+  shadowsocks:
+    container_name: shadowsocks
+    network_mode: "host"
+    restart: always
+    build:
+      context: ./shadowsocks
+      # args:
+      #   - SS_VER=3.0.6
+    image: colachen/shadowsocks-libev-server:20170910
+    volumes:
+      - ./shadowsocks:/shadowsocks
+    ports:
+      - 8388:8388
+
+  kcptun:
+    container_name: kcptun
+    network_mode: "host"
+    restart: always
+    build:
+      context: ./kcptun
+      # args:
+      #  - KCP_VER=20170329      
+    image: colachen/kcptun-server:20170910
+    volumes:
+      - ./kcptun:/kcptun
+    ports:
+      - 4000:4000/udp
+    depends_on:
+      - shadowsocks
