@@ -9,7 +9,7 @@ services:
       context: ./shadowsocks
       # args:
       #   - SS_VER=3.0.6
-    image: colachen/shadowsocks-libev-server:20170910
+    image: colachen/shadowsocks-libev:20170910
     volumes:
       - ./shadowsocks:/shadowsocks
     ports:
@@ -23,7 +23,7 @@ services:
       context: ./kcptun
       # args:
       #  - KCP_VER=20170329      
-    image: colachen/kcptun-server:20170910
+    image: colachen/kcptun:20170910
     volumes:
       - ./kcptun:/kcptun
     ports:
