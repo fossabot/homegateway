@@ -7,6 +7,7 @@ ARG SS_URL=https://github.com/shadowsocks/shadowsocks-libev/releases/download/v$
 RUN set -ex && \
     apk add --no-cache --virtual .build-deps \
                                 autoconf \
+                                c-ares-dev \
                                 build-base \
                                 curl \
                                 libev-dev \
