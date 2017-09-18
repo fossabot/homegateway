@@ -2,7 +2,7 @@ FROM hypriot/rpi-alpine-scratch:v3.4
 
 MAINTAINER cola <colachg@gmail.com>
 
-ARG KCP_VER=20170329
+ARG KCP_VER=20170904
 ARG KCP_URL=https://github.com/xtaci/kcptun/releases/download/v$KCP_VER/kcptun-linux-arm-$KCP_VER.tar.gz
 
 RUN set -ex &&\
