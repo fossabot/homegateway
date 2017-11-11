@@ -9,4 +9,4 @@ services:
     container_name: dnscrypt-udp
     ports:
       - "5553:5553/udp"
-    command: dnscrypt-proxy -N ${Provider name} -T -r ${remote_server_ip}:5553 -a 0.0.0.0:5553 -k ${Provider public key}
+    command: dnscrypt-proxy -N ${Provider name} -r ${remote_server_ip}:5553 -a 0.0.0.0:5553 -k ${Provider public key}
