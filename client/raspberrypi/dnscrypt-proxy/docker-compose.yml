@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  dnscrypt-proxy-udp:
+    build:
+      context: .
+    restart: always
+    image: colachen/dnscrypt-proxy-rpi
+    container_name: dnscrypt-udp
+    ports:
+      - "5553:5553/udp"
+    command: dnscrypt-proxy -N ${Provider name} -T -r ${remote_server_ip}:5553 -a 0.0.0.0:5553 -k ${Provider public key}
