@@ -6,9 +6,8 @@ services:
     restart: always
     build:
       context: .
-      dockerfile: Dockerfile.kcptun-rpi
     network_mode: "host"
-    image: colachen/kcptun-rpi:20170520
+    image: colachen/kcptun-rpi
     volumes:
       - ./config:/kcptun
     ports:
