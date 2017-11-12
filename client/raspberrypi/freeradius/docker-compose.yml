@@ -8,7 +8,10 @@ services:
     container_name: radius-server
     command: "/usr/sbin/radiusd -X"
     volumes:
-      - ${PWD}/config/raddb:/etc/raddb
+      - ${PWD}/config/raddb/radiusd.conf:/etc/raddb/radiusd.conf
+      - ${PWD}/config/raddb/sql:/etc/raddb/mods-available/sql
+    links:
+      - "mysql"
     ports:
       - "1812:1812"
     command: "/usr/sbin/radiusd -X"
@@ -18,11 +21,11 @@ services:
     container_name: mysql
     restart: always
     volumes:
-      - ${PWD}/mysql:/var/lib/mysql
+      - ${PWD}/mysql/data:/var/lib/mysql
     ports:
       - "3306:3306"
     environment:
-      - MYSQL_ROOT_PASSWORD=ABCD1234_
+      - MYSQL_ROOT_PASSWORD=abcd1234_
+      - MYSQL_DATABASE=radius
       - MYSQL_USER=radius
-      - MYSQL_PASSWORD=abcd1234_
-      
+      - MYSQL_PASSWORD=radius123_
