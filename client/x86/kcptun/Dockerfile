@@ -1,7 +1,7 @@
-FROM alpine:3.5
+FROM alpine:3.6
 MAINTAINER cola <colachg@gmail.com>
 
-ARG KCP_VER=20170904
+ARG KCP_VER=20171201
 ARG KCP_URL=https://github.com/xtaci/kcptun/releases/download/v$KCP_VER/kcptun-linux-amd64-$KCP_VER.tar.gz
 
 WORKDIR /kcptun
